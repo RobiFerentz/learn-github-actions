@@ -1,5 +1,6 @@
 /dist
 /coverage
 /node_modules
+.vscode/
 stats.json 
 *summary.json
