@@ -1,0 +1,33 @@
+name: ci
+on: 
+  push: 
+    branches: 
+      - robert
+      - master
+      - develop
+  pull_request:
+    branches:
+      - robert
+      - master
+      - develop
+
+jobs:
+  ci: 
+    runs-on: ubuntu-latest
+    steps:     
+
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: npm install
+        run: npm ci
+      
+      - name: Type check
+        run: npm run check-types
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Run ESLint
+        run: npm run eslint:test
+  
